@@ -41,16 +41,16 @@ public class CourseController {
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/topics/{topicId}/courses/{id}")
-	public List<Course> postCourse(@PathVariable String id){
+	public List<Course> postCourse(@PathVariable String id, @PathVariable String topicId ){
 		courseService.deleteCourse(id);
-		return getAllCourses();
+		return getAllCourses(topicId);
 	}
 	
 	@RequestMapping(method=RequestMethod.PATCH, value="/topics/{topicId}/courses/{id}")
 	public Optional<Course> patchCourse( @RequestBody Map<String, String> field,  @PathVariable String id){
 		return courseService.modifyCourseAtributte(id, field);
 	}
-	@RequestMapping(method=RequestMethod.PUT, value="/topics/{id}")
+	@RequestMapping(method=RequestMethod.PUT, value="/topics/{topicId}/courses/{id}")
 	public Course putCourse( @RequestBody Course course,  @PathVariable String id){
 
 		courseService.modifyCourse(course);
