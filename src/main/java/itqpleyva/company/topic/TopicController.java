@@ -43,10 +43,10 @@ public class TopicController {
 	public Optional<Topic> patchTopic( @RequestBody Map<String, String> field,  @PathVariable String id){
 		return topicService.modifyTopicAtributte(id, field);
 	}
-/*	@RequestMapping(method=RequestMethod.PUT, value="/topics/{id}")
+	@RequestMapping(method=RequestMethod.PUT, value="/topics/{id}")
 	public Topic putTopic( @RequestBody Topic topic,  @PathVariable String id){
 
 		topicService.modifyTopic(topic);
 		return topic;
-	}*/
+	}
 }

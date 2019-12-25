@@ -24,8 +24,8 @@ public class CourseController {
 	private CourseService courseService;	
 	
 	@RequestMapping("/topics/{topicId}/courses")
-	public List<Course> getAllCourses(){	
-		return courseService.getAllCourses();
+	public List<Course> getAllCourses(@PathVariable String topicId){	
+		return courseService.getAllCourses(topicId);
 	}
 	
 	@RequestMapping("/topics/{topicId}/courses/{courseId}")
@@ -51,7 +51,7 @@ public class CourseController {
 		return courseService.modifyCourseAtributte(id, field);
 	}
 	@RequestMapping(method=RequestMethod.PUT, value="/topics/{id}")
-	public Course putTopic( @RequestBody Course course,  @PathVariable String id){
+	public Course putCourse( @RequestBody Course course,  @PathVariable String id){
 
 		courseService.modifyCourse(course);
 		return course;

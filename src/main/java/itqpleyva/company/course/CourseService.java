@@ -24,9 +24,9 @@ public class CourseService {
 			 new Topic("spring4", "spring4", "description spring4")
 			));
 	*/
-	public List<Course> getAllCourses(){
+	public List<Course> getAllCourses(String topicId){
 		List<Course> courses = new ArrayList<>();
-		courseRepository.findAll()
+		courseRepository.findByTopicId(topicId)
 		.forEach(courses::add);
 		return courses;
 	}
